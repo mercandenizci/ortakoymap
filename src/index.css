@@ -6,37 +6,29 @@ body {
   margin: 0;
   font-family: Calibri;
 }
-
 input {
   font-size: 12px;
   width: 80%;
   margin: 10px;
 }
-
 h1 {
   color: #525454;
   font-size: 30px;
   margin: 0 0 10px 0;
   text-align: center;
 }
-
 h2 {
-
   font-size: 20px;
   margin: 0 0 10px 0;
   text-align: left;
 }
-
 li {
   cursor: pointer;
 }
-
 .container {
   height: 100%;
   position: relative;
 }
-
-
 #map {
   bottom: 0px;
   height: 100%;
@@ -44,7 +36,6 @@ li {
   position: absolute;
   right: 0px;
 }
-
 .search-area {
   height: 100%;
   background: #fff;
@@ -54,8 +45,4 @@ li {
   padding: 10px 10px 30px 10px;
   text-align: left;
   width: 340px;
-
 }
-
-
-

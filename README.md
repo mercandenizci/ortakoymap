@@ -11,7 +11,7 @@ Download or clone the repo from [here](https://github.com/mercandenizci/ortakoym
 
 ##### Dependencies
 
--[Google Maps Javascript API](https://developers.google.com/maps/documentation/). 
--[Foursquare Developer Tools](https://developer.foursquare.com/).
--[Create React App](https://github.com/facebook/create-react-app).
--[Node](https://www.npmjs.com/package/foursquare-venue-lat-lng) 
+[Google Maps Javascript API](https://developers.google.com/maps/documentation/), 
+[Foursquare Developer Tools](https://developer.foursquare.com/), 
+[Create React App](https://github.com/facebook/create-react-app), 
+[Node](https://www.npmjs.com/package/foursquare-venue-lat-lng),  

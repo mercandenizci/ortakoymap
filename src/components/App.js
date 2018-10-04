@@ -1,7 +1,6 @@
-import React, {
-  Component
-} from "react";
+import React, { Component } from "react";
 import LocationList from "./LocationList";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,40 +10,23 @@ class App extends Component {
       infowindow: "",
       prevmarker: ""
     };
+
     // conserve object instances
     this.initMap = this.initMap.bind(this);
     this.openInfoWindow = this.openInfoWindow.bind(this);
     this.closeInfoWindow = this.closeInfoWindow.bind(this);
   }
+
   componentDidMount() {
     // Globally invoke the initMap() function 
     window.initMap = this.initMap;
     // Asynchronously load the Google Maps script
-    loadMapJS("https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyBdHpuho-ppseX5rK16Wvoq2D7S7hM1Fbw&v=3&callback=initMap");
+    loadMapJS("https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyBdHpuho-ppseX5rK16Wvoq2D7S7hM1Fbw&v=3&callback=initMap"
+      );
   }
+
   //Init the map when the google map script is loaded
   initMap() {
-    //Add marker to locations
-    var alllocations = [];
-    this.state.alllocations.forEach(function(location) {
-      var longname = location.name;
-      var marker = new window.google.maps.Marker({
-        position: new window.google.maps.LatLng(location.latitude, location.longitude),
-        animation: window.google.maps.Animation.DROP,
-        map: map
-      });
-      //Open info window when clcked on the marker
-      marker.addListener("click", function() {
-        self.openInfoWindow(marker);
-      });
-      location.longname = longname;
-      location.marker = marker;
-      location.display = true;
-      alllocations.push(location);
-    });
-    this.setState({
-      alllocations: alllocations
-    });
     var self = this;
     //Set the initial view of map to Ortakoy
     var mapview = document.getElementById("map");
@@ -74,7 +56,29 @@ class App extends Component {
     window.google.maps.event.addListener(map, "click", function() {
       self.closeInfoWindow();
     });
+    //Add marker to locations
+    var alllocations = [];
+    this.state.alllocations.forEach(function(location) {
+      var longname = location.name;
+      var marker = new window.google.maps.Marker({
+        position: new window.google.maps.LatLng(location.latitude, location.longitude),
+        animation: window.google.maps.Animation.DROP,
+        map: map
+      });
+      //Open info window when clcked on the marker
+      marker.addListener("click", function() {
+        self.openInfoWindow(marker);
+      });
+      location.longname = longname;
+      location.marker = marker;
+      location.display = true;
+      alllocations.push(location);
+    });
+    this.setState({
+      alllocations: alllocations
+    });   
   }
+
   //Open the infowindow for the marker
   openInfoWindow(marker) {
     this.closeInfoWindow();
@@ -88,6 +92,7 @@ class App extends Component {
     this.state.map.panBy(0, -200);
     this.getMarkerInfo(marker);
   }
+  
   closeInfoWindow() {
     if (this.state.prevmarker) {
       this.state.prevmarker.setAnimation(null);
@@ -128,9 +133,8 @@ class App extends Component {
   }
   //Show list of locations
   render() {
-    return ( < div > < LocationList aria - label = "information"
-      role = "infowindow"
-      tabindex = "0"
+    return ( < div > 
+      <LocationList 
       key = "100"
       alllocations = {
         this.state.alllocations
@@ -145,3 +149,14 @@ class App extends Component {
   }
 }
 export default App;
+
+function loadMapJS(src) {
+  var ref = window.document.getElementsByTagName("script")[0];
+  var script = window.document.createElement("script");
+  script.src = src;
+  script.async = true;
+  script.onerror = function() {
+    document.write("Google Maps can't be loaded");
+  };
+  ref.parentNode.insertBefore(script, ref);
+}

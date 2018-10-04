@@ -1,8 +1,7 @@
 import React from "react";
 
 class Place extends React.Component {
-  
-  //Show the markers and infowindow when clicked on the list of places
+ //Show the markers and infowindow when clicked on the list of places
   render() {
     return (
       <li

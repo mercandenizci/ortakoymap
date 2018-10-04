@@ -28,5 +28,21 @@
     "name": "Ortakoy Square",
     "latitude": 41.0475145,
     "longitude": 29.0236245
+  },
+  {
+    "name": "The House Cafe Ortaköy",
+    "latitude": 41.0475211,
+    "longitude": 29.0231463
+  },
+  {
+    "name": "Banyan Restaurant",
+    "latitude": 41.0475533,
+    "longitude": 29.0231463
+  },
+  {
+    "name": "Ortaköy Cafe & Kahvaltı",
+    "latitude": 41.0498287,
+    "longitude": 29.0228466
   }
+
 ]

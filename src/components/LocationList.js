@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Place from "./Place";
 
 class LocationList extends Component {
-  /**
-   * Constructor
-   */
+ 
   constructor(props) {
     super(props);
     this.state = {
@@ -16,9 +14,8 @@ class LocationList extends Component {
     this.filterLocations = this.filterLocations.bind(this);
   }
 
-  /**
-   * Filter Locations based on user query
-   */
+  
+  //Filter Locations 
   filterLocations(event) {
     this.props.closeInfoWindow();
     const { value } = event.target;
@@ -44,9 +41,8 @@ class LocationList extends Component {
     });
   }
 
-  /**
-   * Render function of LocationList
-   */
+ 
+   //Render list of locations
   render() {
     var locationlist = this.state.locations.map(function(listItem, index) {
       return (
@@ -63,21 +59,24 @@ class LocationList extends Component {
       <div className="search-area">
       <h1>Ortaköy</h1>
       <p>Ortaköy in is a neighbourhood in the the Beşiktaş district of Istanbul, Turkey. Formerly a small village, it was known as Agios Fokas and later as Mesachorion in the Byzantine period. It is a small neighborhood full of historical sites and lots of great restaurants and cafes on the bank of the Bosphorus.</p>
-
-      <ul className="location-list">
-          {this.state.suggestions && locationlist}
-        </ul>
-
-        <input
+      <p>Below is a list of historical sites and restaurants you should definetely visit when you are there.</p>
+      <h2>Places to See & Eat </h2>
+       <input
           role="search"
           aria-labelledby="filter"
           id="search-field"
           className="search-input"
           type="text"
-          placeholder="Filter"
+          placeholder="Filter through the list..."
           value={this.state.query}
           onChange={this.filterLocations}
         />
+
+      <ul className="location-list">
+          {this.state.suggestions && locationlist}
+        </ul>
+
+       
       </div>  
       </div>
     );

@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import LocationList from "./LocationList";
 
 class App extends Component {
-  /**
-   * Constructor
-   */
+
   constructor(props) {
     super(props);
     this.state = {
-      alllocations: require("./places.json"), // Get the locations from the JSON file
+      alllocations: require("./places.json"), 
       map: "",
       infowindow: "",
       prevmarker: ""
@@ -30,9 +28,7 @@ class App extends Component {
     );
   }
 
-  /**
-   * Initialise the map once the google map script is loaded
-   */
+//Init the map when the google map script is loaded
   initMap() {
     var self = this;
 
@@ -91,10 +87,7 @@ class App extends Component {
     });
   }
 
-  /**
-   * Open the infowindow for the marker
-   * @param {object} location marker
-   */
+ //Open the infowindow for the marker
   openInfoWindow(marker) {
     this.closeInfoWindow();
     this.state.infowindow.open(this.state.map, marker);
@@ -108,15 +101,15 @@ class App extends Component {
     this.getMarkerInfo(marker);
   }
 
-  /**
-   * Retrive the location data from the foursquare api
-   */
+
+  //Get info from the foursquare api  
   getMarkerInfo(marker) {
     var self = this;
 
     // Add the api keys for foursquare
-    var clientId = "Q5MK2XFDK3FVTDQLOQKSFTKS1CI1XEWZSO2TIPP5DU2PWICK";
-    var clientSecret = "MQ3CZLR5KY1F04FUAX5YWXOLYRRJSYFWCHZANZZ23M4WI05L";
+    var clientId = "TEUTEPLS53TI2RKOKGEYBJVGU0R010UVPZVHV1TWCVVTG4T1";
+    var clientSecret = "D2PBI1VY0P1JUE4LX2AGM0CKS3UISZCLQT0YLMGKUKJCYX5O";
+
 
     // Build the api endpoint
     var url =
@@ -164,11 +157,7 @@ class App extends Component {
       });
   }
 
-  /**
-   * Close the info window previously opened
-   *
-   * @memberof App
-   */
+ 
   closeInfoWindow() {
     if (this.state.prevmarker) {
       this.state.prevmarker.setAnimation(null);
@@ -179,9 +168,7 @@ class App extends Component {
     this.state.infowindow.close();
   }
 
-  /**
-   * Render for react
-   */
+  //Show list of locations
   render() {
     return (
       <div>

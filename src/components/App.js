@@ -145,7 +145,7 @@ class App extends Component {
       closeInfoWindow = {
         this.closeInfoWindow
       }
-      /> < div id = "map" / > < /div>);
+      /> < div id = "map" aria-label="neighbourhood-map" role="map" tabindex="2"/ > < /div>);
   }
 }
 export default App;
@@ -155,8 +155,10 @@ function loadMapJS(src) {
   var script = window.document.createElement("script");
   script.src = src;
   script.async = true;
+  script.defer = true
   script.onerror = function() {
     document.write("Google Maps can't be loaded");
   };
   ref.parentNode.insertBefore(script, ref);
 }
+

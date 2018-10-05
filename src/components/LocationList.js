@@ -52,7 +52,7 @@ class LocationList extends Component {
     }, this);
     return ( 
       < div className = "container" > 
-      < div className = "search-area" aria-label="search-bar" role="search" tabindex="1" > 
+      < div className = "search-area" aria-label="search-bar" role="search" tabIndex="1" > 
       < h1 > Ortaköy </h1> 
       <p> Ortaköy in is a neighbourhood in the the Beşiktaş district of Istanbul, Turkey.Formerly a small village, it was known as Agios Fokas and later as Mesachorion in the Byzantine period.It is a small neighborhood full of historical sites and lots of great restaurants and cafes on the bank of the Bosphorus.</p> 
       <p> Below is a list of historical sites and restaurants you should definetely visit when you are there.</p> 
